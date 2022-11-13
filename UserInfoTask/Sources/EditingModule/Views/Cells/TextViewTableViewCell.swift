@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NameTextViewProtocol: AnyObject {
+    func changeSize()
+}
+
 final class TextViewTableViewCell: UITableViewCell {
     
     static var idTextViewCell = "idTextViewCell"
+    
+    weak var nameTextViewDelegate: NameTextViewProtocol?
     
     private let nameLabel = UILabel()
     private let nameTextView = NameTextView()
@@ -19,6 +25,8 @@ final class TextViewTableViewCell: UITableViewCell {
         
         setupHierarchy()
         setupLayout()
+        textViewDidChange(nameTextView)
+        layoutIfNeeded()
     }
     
     required init?(coder: NSCoder) {
@@ -35,8 +43,9 @@ final class TextViewTableViewCell: UITableViewCell {
         nameTextView.delegate = self
     }
     
-    public func configure(name: String) {
+    public func configure(name: String, scrollEnabled: Bool) {
         nameLabel.text = name
+        nameTextView.isScrollEnabled = scrollEnabled
     }
 }
 
@@ -44,7 +53,9 @@ final class TextViewTableViewCell: UITableViewCell {
 
 extension TextViewTableViewCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        print(nameTextView.text)
+        contentView.heightAnchor.constraint(equalTo: nameTextView.heightAnchor, multiplier: 1).isActive = true
+        
+        nameTextViewDelegate?.changeSize()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -74,8 +85,7 @@ extension TextViewTableViewCell {
         
             nameTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             nameTextView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 10),
-            nameTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            nameTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+            nameTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
     }
 }
