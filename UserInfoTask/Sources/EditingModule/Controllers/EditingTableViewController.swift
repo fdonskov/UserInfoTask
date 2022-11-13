@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  EditingTableViewController.swift
 //  UserInfoTask
 //
 //  Created by Федор Донсков on 13.11.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UITableViewController {
+final class EditingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,19 +18,28 @@ final class MainViewController: UITableViewController {
     
     private func setupHierarchy() {
         title = "Просмотр"
-        view.backgroundColor = .white
+        view.backgroundColor = .red
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(editingTapped))
     }
     
     private func setupTableView() {
         tableView.register(MainTableViewCell.self,
                            forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
     }
+    
+    @objc private func editingTapped() {
+        print("tap")
+    }
 }
 
 
 // MARK: - UITableViewDataSource
 
-extension MainViewController {
+extension EditingTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Resources.NameFields.allCases.count
     }
@@ -49,9 +58,10 @@ extension MainViewController {
 
 // MARK: - UITableViewDelegate
 
-extension MainViewController {
+extension EditingTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         indexPath.row == 1 ? UITableView.automaticDimension : 44
     }
 }
+
 

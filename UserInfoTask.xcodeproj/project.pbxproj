@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932919452920E32600C6E740 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932919442920E32600C6E740 /* EditingTableViewController.swift */; };
 		936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B02920D0ED00C67C2E /* AppDelegate.swift */; };
-		936805B52920D0ED00C67C2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainViewController.swift */; };
+		936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainTableViewController.swift */; };
 		936805BA2920D0EF00C67C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936805B92920D0EF00C67C2E /* Assets.xcassets */; };
 		936805BD2920D0EF00C67C2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936805BB2920D0EF00C67C2E /* LaunchScreen.storyboard */; };
 		936805CD2920D76000C67C2E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805CC2920D76000C67C2E /* Resources.swift */; };
@@ -17,9 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932919442920E32600C6E740 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		936805AD2920D0ED00C67C2E /* UserInfoTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserInfoTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936805B02920D0ED00C67C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		936805B42920D0ED00C67C2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		936805B42920D0ED00C67C2E /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		936805B92920D0EF00C67C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		936805BC2920D0EF00C67C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		936805BE2920D0EF00C67C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		932919422920E30200C6E740 /* EditingModule */ = {
+			isa = PBXGroup;
+			children = (
+				932919432920E31400C6E740 /* Controllers */,
+			);
+			path = EditingModule;
+			sourceTree = "<group>";
+		};
+		932919432920E31400C6E740 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				932919442920E32600C6E740 /* EditingTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		936805A42920D0ED00C67C2E = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +88,7 @@
 				936805C72920D3A100C67C2E /* Storyboards */,
 				936805C82920D3B600C67C2E /* Application */,
 				936805C92920D3F300C67C2E /* MainModule */,
+				932919422920E30200C6E740 /* EditingModule */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -121,7 +140,7 @@
 		936805CA2920D3FC00C67C2E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				936805B42920D0ED00C67C2E /* MainViewController.swift */,
+				936805B42920D0ED00C67C2E /* MainTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,7 +249,8 @@
 			files = (
 				936805D52920D9B900C67C2E /* UIView + Extensions.swift in Sources */,
 				936805CD2920D76000C67C2E /* Resources.swift in Sources */,
-				936805B52920D0ED00C67C2E /* MainViewController.swift in Sources */,
+				932919452920E32600C6E740 /* EditingTableViewController.swift in Sources */,
+				936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */,
 				936805D02920D82600C67C2E /* MainTableViewCell.swift in Sources */,
 				936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */,
 			);

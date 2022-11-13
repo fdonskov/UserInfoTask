@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+final class MainTableViewCell: UITableViewCell {
     
     private let nameLabel = UILabel()
     
@@ -46,6 +46,8 @@ extension MainTableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            heightAnchor.constraint(greaterThanOrEqualToConstant: 44),
+            
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.35),
