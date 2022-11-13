@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Просмотр"
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
 
 
