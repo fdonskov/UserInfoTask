@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		932919452920E32600C6E740 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932919442920E32600C6E740 /* EditingTableViewController.swift */; };
+		9329194A2920E53800C6E740 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932919492920E53800C6E740 /* TextViewTableViewCell.swift */; };
+		9329194C2920E62A00C6E740 /* NameTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329194B2920E62A00C6E740 /* NameTextView.swift */; };
 		936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B02920D0ED00C67C2E /* AppDelegate.swift */; };
 		936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainTableViewController.swift */; };
 		936805BA2920D0EF00C67C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936805B92920D0EF00C67C2E /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		932919442920E32600C6E740 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
+		932919492920E53800C6E740 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		9329194B2920E62A00C6E740 /* NameTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextView.swift; sourceTree = "<group>"; };
 		936805AD2920D0ED00C67C2E /* UserInfoTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserInfoTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936805B02920D0ED00C67C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		936805B42920D0ED00C67C2E /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		932919422920E30200C6E740 /* EditingModule */ = {
 			isa = PBXGroup;
 			children = (
+				932919462920E51400C6E740 /* Views */,
 				932919432920E31400C6E740 /* Controllers */,
 			);
 			path = EditingModule;
@@ -55,6 +60,23 @@
 				932919442920E32600C6E740 /* EditingTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		932919462920E51400C6E740 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				932919472920E51C00C6E740 /* Cells */,
+				9329194B2920E62A00C6E740 /* NameTextView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		932919472920E51C00C6E740 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				932919492920E53800C6E740 /* TextViewTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		936805A42920D0ED00C67C2E = {
@@ -252,6 +274,8 @@
 				932919452920E32600C6E740 /* EditingTableViewController.swift in Sources */,
 				936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */,
 				936805D02920D82600C67C2E /* MainTableViewCell.swift in Sources */,
+				9329194A2920E53800C6E740 /* TextViewTableViewCell.swift in Sources */,
+				9329194C2920E62A00C6E740 /* NameTextView.swift in Sources */,
 				936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,8 +17,8 @@ final class EditingTableViewController: UITableViewController {
     }
     
     private func setupHierarchy() {
-        title = "Просмотр"
-        view.backgroundColor = .red
+        title = "Редактирование"
+        view.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить",
                                                             style: .plain,
@@ -27,8 +27,8 @@ final class EditingTableViewController: UITableViewController {
     }
     
     private func setupTableView() {
-        tableView.register(MainTableViewCell.self,
-                           forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
+        tableView.register(TextViewTableViewCell.self,
+                           forCellReuseIdentifier: TextViewTableViewCell.idTextViewCell)
     }
     
     @objc private func editingTapped() {
@@ -45,8 +45,8 @@ extension EditingTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.idMainTableViewCell,
-                                                       for: indexPath) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.idTextViewCell,
+                                                       for: indexPath) as? TextViewTableViewCell else {
             return UITableViewCell()
         }
         

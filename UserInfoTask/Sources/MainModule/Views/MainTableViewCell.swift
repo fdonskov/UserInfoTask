@@ -9,17 +9,18 @@ import UIKit
 
 final class MainTableViewCell: UITableViewCell {
     
+    static var idMainTableViewCell = "idMainTableViewCell"
+    
     private let nameLabel = UILabel()
     
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
         label.text = "Test"
+        label.font = Resources.Fonts.avenirNextRegular(with: 18)
         label.numberOfLines = 0
         return label
     }()
-    
-    static var idMainTableViewCell = "idMainTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,6 +34,8 @@ final class MainTableViewCell: UITableViewCell {
     }
     
     private func setupHierarchy() {
+        selectionStyle = .none
+        nameLabel.font = Resources.Fonts.avenirNextRegular(with: 18)
         addView(nameLabel)
         addView(valueLabel)
     }
