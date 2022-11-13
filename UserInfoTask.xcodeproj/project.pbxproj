@@ -13,6 +13,7 @@
 		936805BD2920D0EF00C67C2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936805BB2920D0EF00C67C2E /* LaunchScreen.storyboard */; };
 		936805CD2920D76000C67C2E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805CC2920D76000C67C2E /* Resources.swift */; };
 		936805D02920D82600C67C2E /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805CF2920D82600C67C2E /* MainTableViewCell.swift */; };
+		936805D52920D9B900C67C2E /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805D42920D9B900C67C2E /* UIView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		936805BE2920D0EF00C67C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936805CC2920D76000C67C2E /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		936805CF2920D82600C67C2E /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		936805D42920D9B900C67C2E /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		936805C92920D3F300C67C2E /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				936805D12920D99900C67C2E /* Extensions */,
 				936805CB2920D73A00C67C2E /* Resource */,
 				936805CE2920D81200C67C2E /* Views */,
 				936805CA2920D3FC00C67C2E /* Controllers */,
@@ -137,6 +140,22 @@
 				936805CF2920D82600C67C2E /* MainTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		936805D12920D99900C67C2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				936805D32920D9A600C67C2E /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		936805D32920D9A600C67C2E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				936805D42920D9B900C67C2E /* UIView + Extensions.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936805D52920D9B900C67C2E /* UIView + Extensions.swift in Sources */,
 				936805CD2920D76000C67C2E /* Resources.swift in Sources */,
 				936805B52920D0ED00C67C2E /* MainViewController.swift in Sources */,
 				936805D02920D82600C67C2E /* MainTableViewCell.swift in Sources */,

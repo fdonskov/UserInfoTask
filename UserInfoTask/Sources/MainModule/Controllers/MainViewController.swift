@@ -22,7 +22,7 @@ final class MainViewController: UITableViewController {
     }
     
     private func setupTableView() {
-        tableView.register(UITableViewCell.self,
+        tableView.register(MainTableViewCell.self,
                            forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
     }
 }
@@ -42,7 +42,16 @@ extension MainViewController {
         }
         
         let nameFirld = Resources.NameFields.allCases[indexPath.row].rawValue
+        cell.configure(name: nameFirld)
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension MainViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        indexPath.row == 1 ? UITableView.automaticDimension : 44
     }
 }
 
