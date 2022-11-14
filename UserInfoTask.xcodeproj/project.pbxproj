@@ -18,6 +18,7 @@
 		932919592921FA2600C6E740 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932919582921FA2600C6E740 /* UserModel.swift */; };
 		9329195C2921FB2800C6E740 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329195B2921FB2800C6E740 /* UserDefaultsHelper.swift */; };
 		9329195E2921FF9100C6E740 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329195D2921FF9100C6E740 /* UIViewController + Extensions.swift */; };
+		932919602922019300C6E740 /* UIBarButtonItem + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329195F2922019300C6E740 /* UIBarButtonItem + Extension.swift */; };
 		936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B02920D0ED00C67C2E /* AppDelegate.swift */; };
 		936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainTableViewController.swift */; };
 		936805BA2920D0EF00C67C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936805B92920D0EF00C67C2E /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		932919582921FA2600C6E740 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9329195B2921FB2800C6E740 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		9329195D2921FF9100C6E740 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
+		9329195F2922019300C6E740 /* UIBarButtonItem + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem + Extension.swift"; sourceTree = "<group>"; };
 		936805AD2920D0ED00C67C2E /* UserInfoTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserInfoTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936805B02920D0ED00C67C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		936805B42920D0ED00C67C2E /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				936805D42920D9B900C67C2E /* UIView + Extensions.swift */,
 				9329195D2921FF9100C6E740 /* UIViewController + Extensions.swift */,
+				9329195F2922019300C6E740 /* UIBarButtonItem + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				9329194A2920E53800C6E740 /* TextViewTableViewCell.swift in Sources */,
 				932919502920F99D00C6E740 /* PickerViewTableViewCell.swift in Sources */,
 				932919592921FA2600C6E740 /* UserModel.swift in Sources */,
+				932919602922019300C6E740 /* UIBarButtonItem + Extension.swift in Sources */,
 				9329194C2920E62A00C6E740 /* NameTextView.swift in Sources */,
 				932919562921F81600C6E740 /* EditingTableView.swift in Sources */,
 				936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */,

@@ -38,6 +38,9 @@ final class EditingViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(saveTapped))
         
+        let backBarButtonItem = UIBarButtonItem.createCustomButton(vc: self, selector: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        
         view.addView(editingTableView)
     }
     
@@ -47,6 +50,19 @@ final class EditingViewController: UIViewController {
             presentSimpleAlert(title: "Выполнено ", message: "Все обязаельные поля заполнены")
         } else {
             presentSimpleAlert(title: "Ошибка", message: "Заполните поля ФИО, дата рождения, пол")
+        }
+    }
+    
+    @objc private func backButtonTapped() {
+        
+        presentChangeAlert { value in
+            if value {
+                // model
+                print(self.userModel)
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     
