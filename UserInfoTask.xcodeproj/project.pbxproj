@@ -138,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				936805C42920D34D00C67C2E /* Sources */,
-				9329195A2921FB1700C6E740 /* Services */,
 				936805C52920D35700C67C2E /* Resources */,
 			);
 			path = UserInfoTask;
@@ -149,6 +148,10 @@
 			children = (
 				936805C72920D3A100C67C2E /* Storyboards */,
 				936805C82920D3B600C67C2E /* Application */,
+				932919572921FA1B00C6E740 /* Models */,
+				936805D12920D99900C67C2E /* Extensions */,
+				936805CB2920D73A00C67C2E /* Resource */,
+				9329195A2921FB1700C6E740 /* Services */,
 				936805C92920D3F300C67C2E /* MainModule */,
 				932919422920E30200C6E740 /* EditingModule */,
 			);
@@ -191,9 +194,6 @@
 		936805C92920D3F300C67C2E /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				932919572921FA1B00C6E740 /* Models */,
-				936805D12920D99900C67C2E /* Extensions */,
-				936805CB2920D73A00C67C2E /* Resource */,
 				936805CE2920D81200C67C2E /* Views */,
 				936805CA2920D3FC00C67C2E /* Controllers */,
 			);
