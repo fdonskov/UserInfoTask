@@ -8,10 +8,13 @@
 import UIKit
 
 final class MainTableViewController: UITableViewController {
+    
+    private var userModel = UserModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getUserModel()
         setupHierarchy()
         setupTableView()
     }
@@ -32,9 +35,13 @@ final class MainTableViewController: UITableViewController {
     }
     
     @objc private func editingTapped() {
-        let editingTableViewController = EditingTableViewController()
+        let editingTableViewController = EditingViewController(userModel)
         navigationItem.backButtonTitle = "Назад"
         navigationController?.pushViewController(editingTableViewController, animated: true)
+    }
+    
+    private func getUserModel() {
+        userModel = UserDefaultsHelper.getUserModel()
     }
 }
 
