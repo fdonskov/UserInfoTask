@@ -17,6 +17,7 @@ final class MainTableViewController: UITableViewController {
         getUserModel()
         setupHierarchy()
         setupTableView()
+        print(userModel)
     }
     
     private func setupHierarchy() {
@@ -30,8 +31,7 @@ final class MainTableViewController: UITableViewController {
     }
     
     private func setupTableView() {
-        tableView.register(MainTableViewCell.self,
-                           forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
+        tableView.register(MainTableViewCell.self)
     }
     
     @objc private func editingTapped() {
@@ -53,13 +53,13 @@ extension MainTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.idMainTableViewCell,
-                                                       for: indexPath) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(MainTableViewCell.self) else {
             return UITableViewCell()
         }
         
         let nameFirld = Resources.NameFields.allCases[indexPath.row].rawValue
-        cell.configure(name: nameFirld)
+        let value = UserDefaultsHelper.getUserValue(Resources.NameFields.allCases[indexPath.row].rawValue)
+        cell.configure(name: nameFirld, value: value)
         return cell
     }
 }
