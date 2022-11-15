@@ -9,15 +9,27 @@ import UIKit
 
 final class EditingViewController: UIViewController {
     
+    private let userPhotoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let editingTableView = EditingTableView()
     
     private var userModel = UserModel()
-
+    
+    override func viewWillLayoutSubviews() {
+        userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupHierarchy()
         setupLayout()
+        addTaps()
     }
     
     init(_ userModel: UserModel) {
@@ -40,6 +52,7 @@ final class EditingViewController: UIViewController {
         
         let backBarButtonItem = UIBarButtonItem.createCustomButton(vc: self, selector: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backBarButtonItem
+        view.addView(userPhotoImageView)
         editingTableView.setUserModel(userModel)
         view.addView(editingTableView)
     }
@@ -47,7 +60,7 @@ final class EditingViewController: UIViewController {
     @objc private func saveTapped() {
         
         let editUserModel = editingTableView.getUserModel()
-
+        
         if authFields(model: editUserModel) {
             presentSimpleAlert(title: "Выполнено", message: "Все обязаельные поля заполнены")
         } else {
@@ -56,7 +69,7 @@ final class EditingViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
-     
+        
         let editUserModel = editingTableView.getUserModel()
         
         if editUserModel == userModel {
@@ -88,6 +101,16 @@ final class EditingViewController: UIViewController {
         }
         return true
     }
+    
+    private func addTaps() {
+        let tapImageView = UITapGestureRecognizer(target: self, action: #selector(setUserPhoto))
+        userPhotoImageView.isUserInteractionEnabled = true
+        userPhotoImageView.addGestureRecognizer(tapImageView)
+    }
+    
+    @objc private func setUserPhoto() {
+        print("tap")
+    }
 }
 
 // MARK: - Setup Layout
@@ -96,7 +119,12 @@ extension EditingViewController {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            editingTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            userPhotoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            userPhotoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            userPhotoImageView.heightAnchor.constraint(equalToConstant: 100),
+            userPhotoImageView.widthAnchor.constraint(equalToConstant: 100),
+            
+            editingTableView.topAnchor.constraint(equalTo: userPhotoImageView.bottomAnchor, constant: 10),
             editingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             editingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             editingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
