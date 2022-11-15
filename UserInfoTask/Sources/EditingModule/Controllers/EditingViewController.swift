@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import PhotosUI
 
 final class EditingViewController: UIViewController {
     
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     private let editingTableView = EditingTableView()
     
     private var userModel = UserModel()
+    
+    private var userPhotoIsCganged = false
     
     override func viewWillLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
@@ -32,8 +36,9 @@ final class EditingViewController: UIViewController {
         addTaps()
     }
     
-    init(_ userModel: UserModel) {
+    init(_ userModel: UserModel, userPhoto: UIImage?) {
         self.userModel = userModel
+        self.userPhotoImageView.image = userPhoto
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,7 +77,12 @@ final class EditingViewController: UIViewController {
         
         let editUserModel = editingTableView.getUserModel()
         
-        if editUserModel == userModel {
+        if authFields(model: editUserModel) == false {
+            presentSimpleAlert(title: "Ошибка", message: "Заполните поля ФИО, дата рождения, пол")
+            return
+        }
+        
+        if editUserModel == userModel && userPhotoIsCganged == false {
             navigationController?.popViewController(animated: true)
         } else {
             presentChangeAlert { [weak self] value in
@@ -83,6 +93,7 @@ final class EditingViewController: UIViewController {
                         return
                     }
                     firstVC.changeUserModel(model: editUserModel)
+                    firstVC.changeUserPhoto(image: self.userPhotoImageView.image)
                     self.navigationController?.popViewController(animated: true)
                 } else {
                     self.navigationController?.popViewController(animated: true)
@@ -93,7 +104,9 @@ final class EditingViewController: UIViewController {
     
     private func authFields(model: UserModel) -> Bool {
         if model.firstName == "Введите данные" ||
+            model.firstName == "" ||
             model.secondName == "Введите данные" ||
+            model.secondName == "" ||
             model.birthday == "" ||
             model.gender == "" ||
             model.gender == "Не указано" {
@@ -109,7 +122,67 @@ final class EditingViewController: UIViewController {
     }
     
     @objc private func setUserPhoto() {
-        print("tap")
+        
+        if #available(iOS 14.0, *) {
+            presentPhotoPicker()
+        } else {
+            presentImagePicker()
+        }
+    }
+}
+
+// MARK: - UINavigationControllerDelegate, UIImagePickerControllerDelegate
+
+extension EditingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    private func presentImagePicker() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as? UIImage
+        userPhotoImageView.image = image
+        userPhotoIsCganged = true
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+
+@available(iOS 14.0, *)
+extension EditingViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: .none)
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+                guard let image = reading as? UIImage, error == nil else {
+                    print("bad image")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.userPhotoImageView.image = image
+                }
+                self.userPhotoIsCganged = true
+            }
+        }
+    }
+    
+    private func presentPhotoPicker() {
+        var phPickerConfig = PHPickerConfiguration(photoLibrary: .shared())
+        phPickerConfig.selectionLimit = 1
+        phPickerConfig.filter = PHPickerFilter.any(of: [.images])
+        
+        let phPickerVC = PHPickerViewController(configuration: phPickerConfig)
+        phPickerVC.delegate = self
+        present(phPickerVC, animated: true)
     }
 }
 

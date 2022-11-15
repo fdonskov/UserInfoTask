@@ -12,7 +12,8 @@ final class MainViewController: UIViewController {
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -46,12 +47,15 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func editingTapped() {
-        let editingTableViewController = EditingViewController(userModel)
+        let editingTableViewController = EditingViewController(userModel, userPhoto: userPhotoImageView.image)
         navigationController?.pushViewController(editingTableViewController, animated: true)
     }
     
     private func getUserModel() {
         userModel = UserDefaultsHelper.getUserModel()
+        
+        let userPhoto = UserDefaultsHelper.loadUserImage()
+        userPhotoImageView.image = userPhoto
     }
     
     private func saveEditModel(_ model: UserModel) {
@@ -85,6 +89,13 @@ final class MainViewController: UIViewController {
         userModel = model
         setValueArray()
         mainTableView.reloadData()
+    }
+    
+    public func changeUserPhoto(image: UIImage?) {
+        userPhotoImageView.image = image
+        
+        guard let userPhoto = image else { return }
+        UserDefaultsHelper.saveUserImage(image: userPhoto)
     }
 }
 
