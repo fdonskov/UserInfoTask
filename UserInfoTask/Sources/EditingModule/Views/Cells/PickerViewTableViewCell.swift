@@ -38,10 +38,18 @@ final class PickerViewTableViewCell: UITableViewCell {
         contentView.addView(genderTextField)
     }
     
-    public func configure(name: String) {
+    public func configure(name: String, value: String) {
         nameLabel.text = name
+        genderTextField.text = value
+    }
+    
+    public func getCellValue() -> String {
+        guard let text = genderTextField.text else { return "" }
+        return text
     }
 }
+
+// MARK: - GenderPickerViewProtocol
 
 extension PickerViewTableViewCell: GenderPickerViewProtocol {
     

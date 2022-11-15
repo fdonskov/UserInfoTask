@@ -42,7 +42,7 @@ final class MainTableViewCell: UITableViewCell {
     
     public func configure(name: String, value: String) {
         nameLabel.text = name
-        valueLabel.text = value
+        valueLabel.text = value == "" ? "Нет данных" : value
     }
 }
 

@@ -42,6 +42,21 @@ final class MainTableViewController: UITableViewController {
     private func getUserModel() {
         userModel = UserDefaultsHelper.getUserModel()
     }
+    
+    private func saveEditModel(_ model: UserModel) {
+        UserDefaultsHelper.saveUserValue(Resources.NameFields.firstName.rawValue, model.firstName)
+        UserDefaultsHelper.saveUserValue(Resources.NameFields.secondName.rawValue, model.secondName)
+        UserDefaultsHelper.saveUserValue(Resources.NameFields.thirdName.rawValue, model.thirdName)
+        UserDefaultsHelper.saveUserValue(Resources.NameFields.birthday.rawValue, model.birthday)
+        UserDefaultsHelper.saveUserValue(Resources.NameFields.gender.rawValue, model.gender)
+    }
+
+    public func changeUserModel(model: UserModel) {
+        saveEditModel(model)
+        
+        userModel = model
+        tableView.reloadData()
+    }
 }
 
 
