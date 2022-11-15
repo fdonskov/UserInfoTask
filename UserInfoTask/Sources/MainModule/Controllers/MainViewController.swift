@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class MainTableViewController: UITableViewController {
+final class MainViewController: UIViewController {
+    
+    private let mainTableView = MainTableView()
     
     private var userModel = UserModel()
 
@@ -16,8 +18,7 @@ final class MainTableViewController: UITableViewController {
         
         getUserModel()
         setupHierarchy()
-        setupTableView()
-        print(userModel)
+        setupLayout()
     }
     
     private func setupHierarchy() {
@@ -28,10 +29,8 @@ final class MainTableViewController: UITableViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(editingTapped))
-    }
-    
-    private func setupTableView() {
-        tableView.register(MainTableViewCell.self)
+        
+        view.addView(mainTableView)
     }
     
     @objc private func editingTapped() {
@@ -55,34 +54,21 @@ final class MainTableViewController: UITableViewController {
         saveEditModel(model)
         
         userModel = model
-        tableView.reloadData()
+        mainTableView.reloadData()
     }
 }
 
 
-// MARK: - UITableViewDataSource
+// MARK: - Setup Layout
 
-extension MainTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Resources.NameFields.allCases.count
-    }
+extension MainViewController {
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(MainTableViewCell.self) else {
-            return UITableViewCell()
-        }
-        
-        let nameFirld = Resources.NameFields.allCases[indexPath.row].rawValue
-        let value = UserDefaultsHelper.getUserValue(Resources.NameFields.allCases[indexPath.row].rawValue)
-        cell.configure(name: nameFirld, value: value)
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension MainTableViewController {
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 1 ? UITableView.automaticDimension : 44
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            mainTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            mainTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            mainTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            mainTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
     }
 }

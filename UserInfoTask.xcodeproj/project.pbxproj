@@ -22,8 +22,9 @@
 		9329196229224ED300C6E740 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329196129224ED300C6E740 /* UITableView + Extension.swift */; };
 		932919642922558B00C6E740 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932919632922558B00C6E740 /* String + Extensions.swift */; };
 		93291966292255E300C6E740 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93291965292255E300C6E740 /* Date + Extensions.swift */; };
+		93291968292354C200C6E740 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93291967292354C200C6E740 /* MainTableView.swift */; };
 		936805B12920D0ED00C67C2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B02920D0ED00C67C2E /* AppDelegate.swift */; };
-		936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainTableViewController.swift */; };
+		936805B52920D0ED00C67C2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805B42920D0ED00C67C2E /* MainViewController.swift */; };
 		936805BA2920D0EF00C67C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936805B92920D0EF00C67C2E /* Assets.xcassets */; };
 		936805BD2920D0EF00C67C2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936805BB2920D0EF00C67C2E /* LaunchScreen.storyboard */; };
 		936805CD2920D76000C67C2E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936805CC2920D76000C67C2E /* Resources.swift */; };
@@ -47,9 +48,10 @@
 		9329196129224ED300C6E740 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		932919632922558B00C6E740 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		93291965292255E300C6E740 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
+		93291967292354C200C6E740 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		936805AD2920D0ED00C67C2E /* UserInfoTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserInfoTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936805B02920D0ED00C67C2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		936805B42920D0ED00C67C2E /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		936805B42920D0ED00C67C2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		936805B92920D0EF00C67C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		936805BC2920D0EF00C67C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		936805BE2920D0EF00C67C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,7 +211,7 @@
 		936805CA2920D3FC00C67C2E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				936805B42920D0ED00C67C2E /* MainTableViewController.swift */,
+				936805B42920D0ED00C67C2E /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				936805CF2920D82600C67C2E /* MainTableViewCell.swift */,
+				93291967292354C200C6E740 /* MainTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,9 +327,10 @@
 				9329195C2921FB2800C6E740 /* UserDefaultsHelper.swift in Sources */,
 				9329196229224ED300C6E740 /* UITableView + Extension.swift in Sources */,
 				936805D52920D9B900C67C2E /* UIView + Extensions.swift in Sources */,
+				93291968292354C200C6E740 /* MainTableView.swift in Sources */,
 				936805CD2920D76000C67C2E /* Resources.swift in Sources */,
 				932919452920E32600C6E740 /* EditingViewController.swift in Sources */,
-				936805B52920D0ED00C67C2E /* MainTableViewController.swift in Sources */,
+				936805B52920D0ED00C67C2E /* MainViewController.swift in Sources */,
 				932919522920FA7400C6E740 /* GenderPickerView.swift in Sources */,
 				9329195E2921FF9100C6E740 /* UIViewController + Extensions.swift in Sources */,
 				936805D02920D82600C67C2E /* MainTableViewCell.swift in Sources */,
