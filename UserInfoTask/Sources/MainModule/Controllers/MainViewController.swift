@@ -19,6 +19,7 @@ final class MainViewController: UIViewController {
         getUserModel()
         setupHierarchy()
         setupLayout()
+        setValueArray()
     }
     
     private func setupHierarchy() {
@@ -48,6 +49,23 @@ final class MainViewController: UIViewController {
         UserDefaultsHelper.saveUserValue(Resources.NameFields.thirdName.rawValue, model.thirdName)
         UserDefaultsHelper.saveUserValue(Resources.NameFields.birthday.rawValue, model.birthday)
         UserDefaultsHelper.saveUserValue(Resources.NameFields.gender.rawValue, model.gender)
+    }
+    
+    private func getValueArray() -> [String] {
+        var valueArray = [String]()
+        
+        for key in Resources.NameFields.allCases {
+            let value = UserDefaultsHelper.getUserValue(key.rawValue)
+            valueArray.append(value)
+        }
+                
+        return valueArray
+    }
+    
+    private func setValueArray() {
+        let valueArray = getValueArray()
+        mainTableView.setValueArray(valueArray)
+        mainTableView.reloadData()
     }
 
     public func changeUserModel(model: UserModel) {

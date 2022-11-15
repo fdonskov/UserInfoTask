@@ -9,6 +9,8 @@ import UIKit
 
 class MainTableView: UITableView {
     
+    private var valueArray = [String]()
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
@@ -40,9 +42,13 @@ extension MainTableView: UITableViewDataSource {
         }
         
         let nameFirld = Resources.NameFields.allCases[indexPath.row].rawValue
-        let value = UserDefaultsHelper.getUserValue(Resources.NameFields.allCases[indexPath.row].rawValue)
+        let value = valueArray[indexPath.row]
         cell.configure(name: nameFirld, value: value)
         return cell
+    }
+    
+    public func setValueArray(_ array: [String]) {
+        valueArray = array
     }
 }
 
